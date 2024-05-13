@@ -2,14 +2,31 @@ version: '3'
 
 services:
   ubuntu-container:
-    image: ubuntu
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: ubuntu-container
     networks:
-      - Hamar-utvikling
+      Hamar-utvikling:
+        ipv4_address: 192.168.1.10
     stdin_open: true
     tty: true
+    environment:
+      - SSH_PUBLIC_KEY=./authorized_keys
+    volumes:
+      - ./authorized_keys:/home/hamar-utvikling/.ssh/authorized_keys
+      - ./proveeksamen_nettside:/var/www/html  # Mount the React app directory
+    ports:
+      - "8080:80"  # Expose port 80 for Apache2
+    working_dir: /var/www/html
     command: /bin/bash
 
 networks:
   Hamar-utvikling:
-    external: true
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
+          ip_range: 192.168.1.0/24
+          gateway: 192.168.1.1
