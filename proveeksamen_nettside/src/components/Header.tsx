@@ -5,19 +5,22 @@ import facebook from "../images/facebook.svg";
 import linkedin from "../images/linkedin.svg";
 import instagram from "../images/instagram.svg";
 import React from "react";
+import Link from "next/link";
 
 const Header = () => {
     return (
-        <div className="flex justify-between">
+        <div className="flex items-center md:justify-between flex-col md:flex-row gap-4 p-4">
             <div>
-                <Image src={logo} alt="logo" className="w-32 py-8"/>
+                <Link href="/">
+                    <Image src={logo} alt="logo" className="w-32"/>
+                </Link>
             </div>
             <div className="flex gap-8 items-center">
-                <p className="">Produkter</p>
-                <p className="">Tjenester</p>       
-                <p className="">Industrier</p>       
-                <p className="">Om Oss</p>
-                <p className="">Kontakt</p>       
+                <a href="#">Produkter</a>
+                <a href="#">Tjenester</a>       
+                <a href="/ansatte">Ansatte</a>       
+                <a href="/om">Om Oss</a>
+                <a href="#">Kontakt</a>       
             </div>
             <div className="flex gap-2 items-center">
                 <div className="rounded-full border border-cyan-500 p-1">

@@ -4,7 +4,7 @@ import logo from "../images/logo.png";
 const Footer = () => {
     return (
         <div>
-            <div className="flex justify-between border-b border-gray-500 px-28 gap-4 pb-14 pt-20">
+            <div className="flex flex-col md:flex-row justify-between border-b border-gray-500 px-8 lg:px-28 gap-4 pb-14 pt-20">
                 <div>
                     <Image src={logo} alt="logo" className="w-32 py-8"/>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
