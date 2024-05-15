@@ -20,7 +20,7 @@ const Header = () => {
                 <a href="#">Tjenester</a>       
                 <a href="/ansatte">Ansatte</a>       
                 <a href="/om">Om Oss</a>
-                <a href="#">Kontakt</a>       
+                <a href="/kontakt">Kontakt</a>       
             </div>
             <div className="flex gap-2 items-center">
                 <div className="rounded-full border border-cyan-500 p-1">
