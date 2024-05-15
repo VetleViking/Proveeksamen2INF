@@ -6,7 +6,6 @@ import jwt from 'jsonwebtoken';
 const userRequireMiddleware = async (req, res, next) => {
     const excludedRoutes = [
         'users/login',
-        'users/createuser',
         'messages/createmessage'
     ];
     console.log('User Connected', req.ip);
@@ -14,6 +13,8 @@ const userRequireMiddleware = async (req, res, next) => {
     if (!excludedRoutes.some((route) => req.path.includes(route))) {
         try {
             const token = req.cookies.token;
+
+            console.log(req.cookies.token);
 
             if (!token) {
                 return res

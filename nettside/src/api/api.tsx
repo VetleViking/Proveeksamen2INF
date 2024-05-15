@@ -44,7 +44,6 @@ export async function create_message(name: string, email: string, message: strin
     const response = await fetch(`http://localhost:4000/api/v1/messages/createmessage/${name}/${email}/${message}`, {
         method: 'POST',
         headers: {
-            
             'Content-Type': 'application/json'
         }
     });
